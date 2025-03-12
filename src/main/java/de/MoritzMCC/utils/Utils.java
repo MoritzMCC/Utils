@@ -2,6 +2,7 @@ package de.MoritzMCC.utils;
 
 import de.MoritzMCC.utils.combatUtils.DamageNerf;
 import de.MoritzMCC.utils.combatUtils.NoHitDelayUtil;
+import de.MoritzMCC.utils.configs.Config;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
