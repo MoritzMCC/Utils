@@ -1,5 +1,6 @@
 package de.MoritzMCC.utils.EntitySpawn;
 
+import de.MoritzMCC.utils.DisguiseUtil;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
@@ -233,15 +234,13 @@ public class EntitySpawnUtil {
 
     public EntitySpawnUtil disguisedAsMob(DisguiseType disguiseType){
         if (entity instanceof LivingEntity){
-            Disguise disguise = new MobDisguise(disguiseType);
-            DisguiseAPI.disguiseEntity(entity, disguise);
+            new DisguiseUtil(entity, disguiseType);
         }
         return this;
     }
     public EntitySpawnUtil disguiseAsPlayer(Player player){
         if (entity instanceof LivingEntity){
-            Disguise disguise = new PlayerDisguise(player);
-            DisguiseAPI.disguiseEntity(entity, disguise);
+            new DisguiseUtil(entity,player);
         }
         return this;
     }

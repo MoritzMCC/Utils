@@ -21,12 +21,12 @@ public class DisguiseUtil {
         DisguiseAPI.disguiseEntity(player, disguise);
     }
 
-    public DisguiseUtil(Mob entity , Player target) {
+    public DisguiseUtil(Entity entity , Player target) {
         Disguise disguise = new PlayerDisguise(target);
         DisguiseAPI.disguiseEntity(entity, disguise);
     }
 
-    public DisguiseUtil(Mob entity, DisguiseType disguiseType) {
+    public DisguiseUtil(Entity entity, DisguiseType disguiseType) {
         Disguise disguise = new MobDisguise(disguiseType);
         DisguiseAPI.disguiseEntity(entity, disguise);
     }
