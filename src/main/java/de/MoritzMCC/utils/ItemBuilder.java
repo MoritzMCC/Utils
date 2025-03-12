@@ -10,7 +10,6 @@ import java.util.Map;
 
 public class ItemBuilder {
 
-
     private ItemStack item;
     private ItemMeta meta;
 

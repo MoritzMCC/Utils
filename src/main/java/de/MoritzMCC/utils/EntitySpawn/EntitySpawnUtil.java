@@ -1,5 +1,10 @@
 package de.MoritzMCC.utils.EntitySpawn;
 
+import me.libraryaddict.disguise.DisguiseAPI;
+import me.libraryaddict.disguise.disguisetypes.Disguise;
+import me.libraryaddict.disguise.disguisetypes.DisguiseType;
+import me.libraryaddict.disguise.disguisetypes.MobDisguise;
+import me.libraryaddict.disguise.disguisetypes.PlayerDisguise;
 import org.bukkit.Bukkit;
 import org.bukkit.EntityEffect;
 import org.bukkit.Location;
@@ -137,7 +142,7 @@ public class EntitySpawnUtil {
 
     public EntitySpawnUtil setItemInHand(ItemStack itemInHand){
         if (entity instanceof LivingEntity){
-            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setItemInHand(itemInHand);
+            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setItemInMainHand(itemInHand);
         }
         return this;
     }
@@ -223,6 +228,21 @@ public class EntitySpawnUtil {
 
     public EntitySpawnUtil setInvulnerable(Boolean invulnerable){
         entity.setInvulnerable(invulnerable);
+        return this;
+    }
+
+    public EntitySpawnUtil disguisedAsMob(DisguiseType disguiseType){
+        if (entity instanceof LivingEntity){
+            Disguise disguise = new MobDisguise(disguiseType);
+            DisguiseAPI.disguiseEntity(entity, disguise);
+        }
+        return this;
+    }
+    public EntitySpawnUtil disguiseAsPlayer(Player player){
+        if (entity instanceof LivingEntity){
+            Disguise disguise = new PlayerDisguise(player);
+            DisguiseAPI.disguiseEntity(entity, disguise);
+        }
         return this;
     }
 
