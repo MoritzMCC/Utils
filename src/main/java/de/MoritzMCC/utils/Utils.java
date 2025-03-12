@@ -2,12 +2,15 @@ package de.MoritzMCC.utils;
 
 import de.MoritzMCC.utils.combatUtils.DamageNerf;
 import de.MoritzMCC.utils.combatUtils.NoHitDelayUtil;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Utils extends JavaPlugin {
+    private static Plugin plugin;
 
     @Override
     public void onEnable() {
+        plugin = this;
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new NoHitDelayUtil(), this);
         getServer().getPluginManager().registerEvents(new InventoryBuilder(null), this);
@@ -18,5 +21,9 @@ public final class Utils extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static Plugin getPlugin() {
+        return plugin;
     }
 }
