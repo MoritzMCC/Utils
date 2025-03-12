@@ -1,24 +1,24 @@
 package de.MoritzMCC.utils.EntitySpawn;
 
-
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.EntityEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.Metadatable;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.util.Vector;
 
 import java.util.List;
+import java.util.Objects;
 
 public class EntitySpawnUtil {
 
     Entity entity;
 
-    public EntitySpawnUtil(Location location, Entity entity) {
-        this.entity = Bukkit.getWorld(location.getWorld().getUID()).spawn(location, entity.getClass());
+    public EntitySpawnUtil(Location location, EntityType entityType) {
+
+        assert entityType.getEntityClass() != null;
+        this.entity = Objects.requireNonNull(Bukkit.getWorld(Objects.requireNonNull(location.getWorld()).getUID())).spawn(location, entityType.getEntityClass());
     }
 
     public EntitySpawnUtil withName(String name) {
@@ -137,38 +137,38 @@ public class EntitySpawnUtil {
 
     public EntitySpawnUtil setItemInHand(ItemStack itemInHand){
         if (entity instanceof LivingEntity){
-            ((LivingEntity)entity).getEquipment().setItemInHand(itemInHand);
+            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setItemInHand(itemInHand);
         }
         return this;
     }
     public EntitySpawnUtil setArmore(ItemStack[] itemStacks){
         if (entity instanceof LivingEntity){
-            ((LivingEntity)entity).getEquipment().setArmorContents(itemStacks);
+            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setArmorContents(itemStacks);
         }
         return this;
     }
 
     public EntitySpawnUtil setHelmet(ItemStack itemStack){
         if (entity instanceof LivingEntity){
-            ((LivingEntity)entity).getEquipment().setHelmet(itemStack);
+            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setHelmet(itemStack);
         }
         return this;
     }
     public EntitySpawnUtil setChestplate(ItemStack itemStack){
         if (entity instanceof LivingEntity){
-            ((LivingEntity)entity).getEquipment().setChestplate(itemStack);
+            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setChestplate(itemStack);
         }
         return this;
     }
     public EntitySpawnUtil setLeggings(ItemStack itemStack){
         if (entity instanceof LivingEntity){
-            ((LivingEntity)entity).getEquipment().setLeggings(itemStack);
+            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setLeggings(itemStack);
         }
         return this;
     }
     public EntitySpawnUtil setBoots(ItemStack itemStack){
         if (entity instanceof LivingEntity){
-            ((LivingEntity)entity).getEquipment().setBoots(itemStack);
+            Objects.requireNonNull(((LivingEntity) entity).getEquipment()).setBoots(itemStack);
         }
         return this;
     }
@@ -222,11 +222,10 @@ public class EntitySpawnUtil {
     }
 
     public EntitySpawnUtil setInvulnerable(Boolean invulnerable){
-        if (entity instanceof LivingEntity){
-            ((LivingEntity)entity).setInvulnerable(invulnerable);
-        }
+        entity.setInvulnerable(invulnerable);
         return this;
     }
+
 
     public Entity spawn(){
         return entity;
