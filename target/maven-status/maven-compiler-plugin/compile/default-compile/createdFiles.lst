@@ -1,0 +1,11 @@
+de/MoritzMCC/utils/texts/HologrammUtil.class
+de/MoritzMCC/utils/TeleportUtil.class
+de/MoritzMCC/utils/combatUtils/SoupHealingUtils.class
+de/MoritzMCC/utils/ItemBuilder.class
+de/MoritzMCC/utils/combatUtils/NoHitDelayUtil.class
+de/MoritzMCC/utils/texts/TextDisplayUtil.class
+de/MoritzMCC/utils/Utils.class
+de/MoritzMCC/utils/placeBlocks/PlaceStructure.class
+de/MoritzMCC/utils/combatUtils/DamageNerf.class
+de/MoritzMCC/utils/placeBlocks/StructureType.class
+de/MoritzMCC/utils/InventoryBuilder.class
