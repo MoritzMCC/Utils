@@ -39,5 +39,5 @@ public class ConfigManager {
        }
        throw new RuntimeException("Could not find config with key: " + key);
     }
-    
+
 }
